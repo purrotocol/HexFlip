@@ -1,0 +1,18 @@
+{
+  "startingHandSize": 5,
+  "cardsDrawnPerTurn": 1,
+  "handLimit": 7,
+  "deckSize": 10,
+  "autoDrawEnabled": true,
+  "placementRequired": true,
+  "attackEligibility": {
+    "mode": "allSides"
+  },
+  "comparison": {
+    "requireNumberGreater": true,
+    "allowEqual": false,
+    "requireShapeMatch": false,
+    "requireColorMatch": false,
+    "requireBothShapeAndColor": false
+  }
+}

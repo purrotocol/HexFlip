@@ -1,0 +1,116 @@
+{
+  "id": "default_deck",
+  "name": "Default Deck",
+  "cards": [
+    {
+      "id": "c1",
+      "sides": [
+        {"shape": "square",   "number": 4, "shapeColor": "#222222", "numberColor": "#FFFFFF"},
+        {"shape": "circle",   "number": 3, "shapeColor": "#CC0000", "numberColor": "#FFFF00"},
+        {"shape": "triangle", "number": 7, "shapeColor": "#0044CC", "numberColor": "#FFFFFF"},
+        {"shape": "star",     "number": 2, "shapeColor": "#333333", "numberColor": "#FFFFFF"},
+        {"shape": "diamond",  "number": 5, "shapeColor": "#007700", "numberColor": "#000000"},
+        {"shape": "square",   "number": 6, "shapeColor": "#FF8800", "numberColor": "#000000"}
+      ]
+    },
+    {
+      "id": "c2",
+      "sides": [
+        {"shape": "circle",   "number": 8, "shapeColor": "#AA0000", "numberColor": "#FFFFFF"},
+        {"shape": "diamond",  "number": 1, "shapeColor": "#0055BB", "numberColor": "#FFFF00"},
+        {"shape": "star",     "number": 6, "shapeColor": "#888800", "numberColor": "#000000"},
+        {"shape": "triangle", "number": 3, "shapeColor": "#009900", "numberColor": "#FFFFFF"},
+        {"shape": "square",   "number": 9, "shapeColor": "#550055", "numberColor": "#FFFFFF"},
+        {"shape": "circle",   "number": 4, "shapeColor": "#FF4400", "numberColor": "#000000"}
+      ]
+    },
+    {
+      "id": "c3",
+      "sides": [
+        {"shape": "triangle", "number": 5, "shapeColor": "#003399", "numberColor": "#FFFFFF"},
+        {"shape": "star",     "number": 8, "shapeColor": "#CC6600", "numberColor": "#000000"},
+        {"shape": "diamond",  "number": 2, "shapeColor": "#006633", "numberColor": "#FFFFFF"},
+        {"shape": "circle",   "number": 7, "shapeColor": "#660000", "numberColor": "#FFFF00"},
+        {"shape": "square",   "number": 1, "shapeColor": "#444444", "numberColor": "#FFFFFF"},
+        {"shape": "triangle", "number": 9, "shapeColor": "#CC0077", "numberColor": "#FFFFFF"}
+      ]
+    },
+    {
+      "id": "c4",
+      "sides": [
+        {"shape": "star",     "number": 3, "shapeColor": "#BB5500", "numberColor": "#FFFFFF"},
+        {"shape": "square",   "number": 7, "shapeColor": "#1A1A1A", "numberColor": "#00FF88"},
+        {"shape": "circle",   "number": 5, "shapeColor": "#990000", "numberColor": "#FFFFFF"},
+        {"shape": "diamond",  "number": 8, "shapeColor": "#004488", "numberColor": "#FFFF00"},
+        {"shape": "triangle", "number": 2, "shapeColor": "#008855", "numberColor": "#000000"},
+        {"shape": "star",     "number": 6, "shapeColor": "#770077", "numberColor": "#FFFFFF"}
+      ]
+    },
+    {
+      "id": "c5",
+      "sides": [
+        {"shape": "diamond",  "number": 9, "shapeColor": "#006600", "numberColor": "#FFFFFF"},
+        {"shape": "triangle", "number": 4, "shapeColor": "#0033AA", "numberColor": "#FFFF00"},
+        {"shape": "star",     "number": 1, "shapeColor": "#CC3300", "numberColor": "#FFFFFF"},
+        {"shape": "square",   "number": 6, "shapeColor": "#333300", "numberColor": "#FFFFFF"},
+        {"shape": "circle",   "number": 8, "shapeColor": "#880044", "numberColor": "#FFFFFF"},
+        {"shape": "diamond",  "number": 3, "shapeColor": "#005577", "numberColor": "#FFFF00"}
+      ]
+    },
+    {
+      "id": "c6",
+      "sides": [
+        {"shape": "circle",   "number": 2, "shapeColor": "#BB0000", "numberColor": "#FFFFFF"},
+        {"shape": "star",     "number": 7, "shapeColor": "#AA7700", "numberColor": "#000000"},
+        {"shape": "square",   "number": 4, "shapeColor": "#111111", "numberColor": "#00FFFF"},
+        {"shape": "triangle", "number": 9, "shapeColor": "#004400", "numberColor": "#FFFFFF"},
+        {"shape": "diamond",  "number": 6, "shapeColor": "#002266", "numberColor": "#FFFF00"},
+        {"shape": "circle",   "number": 1, "shapeColor": "#DD3300", "numberColor": "#FFFFFF"}
+      ]
+    },
+    {
+      "id": "c7",
+      "sides": [
+        {"shape": "square",   "number": 5, "shapeColor": "#222200", "numberColor": "#FFFF00"},
+        {"shape": "diamond",  "number": 7, "shapeColor": "#00AA66", "numberColor": "#000000"},
+        {"shape": "circle",   "number": 9, "shapeColor": "#770000", "numberColor": "#FFFFFF"},
+        {"shape": "star",     "number": 4, "shapeColor": "#996600", "numberColor": "#000000"},
+        {"shape": "triangle", "number": 1, "shapeColor": "#003366", "numberColor": "#FFFFFF"},
+        {"shape": "square",   "number": 8, "shapeColor": "#660066", "numberColor": "#FFFFFF"}
+      ]
+    },
+    {
+      "id": "c8",
+      "sides": [
+        {"shape": "triangle", "number": 6, "shapeColor": "#005500", "numberColor": "#FFFFFF"},
+        {"shape": "circle",   "number": 4, "shapeColor": "#AA2200", "numberColor": "#FFFF00"},
+        {"shape": "star",     "number": 9, "shapeColor": "#885500", "numberColor": "#000000"},
+        {"shape": "square",   "number": 2, "shapeColor": "#222244", "numberColor": "#FFFFFF"},
+        {"shape": "diamond",  "number": 5, "shapeColor": "#007755", "numberColor": "#000000"},
+        {"shape": "triangle", "number": 3, "shapeColor": "#330066", "numberColor": "#FFFFFF"}
+      ]
+    },
+    {
+      "id": "c9",
+      "sides": [
+        {"shape": "star",     "number": 5, "shapeColor": "#CC7700", "numberColor": "#000000"},
+        {"shape": "triangle", "number": 8, "shapeColor": "#002299", "numberColor": "#FFFF00"},
+        {"shape": "diamond",  "number": 4, "shapeColor": "#004422", "numberColor": "#FFFFFF"},
+        {"shape": "circle",   "number": 6, "shapeColor": "#990011", "numberColor": "#FFFFFF"},
+        {"shape": "square",   "number": 3, "shapeColor": "#111122", "numberColor": "#FFFFFF"},
+        {"shape": "star",     "number": 7, "shapeColor": "#885522", "numberColor": "#000000"}
+      ]
+    },
+    {
+      "id": "c10",
+      "sides": [
+        {"shape": "diamond",  "number": 8, "shapeColor": "#005533", "numberColor": "#FFFFFF"},
+        {"shape": "square",   "number": 1, "shapeColor": "#333333", "numberColor": "#FF8800"},
+        {"shape": "circle",   "number": 5, "shapeColor": "#BB1100", "numberColor": "#FFFFFF"},
+        {"shape": "star",     "number": 3, "shapeColor": "#664400", "numberColor": "#FFFF00"},
+        {"shape": "triangle", "number": 9, "shapeColor": "#001155", "numberColor": "#FFFFFF"},
+        {"shape": "diamond",  "number": 2, "shapeColor": "#227700", "numberColor": "#000000"}
+      ]
+    }
+  ]
+}
