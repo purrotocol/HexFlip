@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HexFlip</title>
+  <style>
+    :root {
+      --bg:        #1a1a2e;
+      --surface:   #16213e;
+      --surface2:  #0f3460;
+      --accent:    #4cc9f0;
+      --text:      #e0e0f0;
+      --muted:     #8888aa;
+      --red:       #d45555;
+      --blue:      #5599dd;
+      --green:     #00ff88;
+      --yellow:    #ffcc00;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface2);
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--accent);
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .badges {
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: var(--surface2);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 0.25rem 0.85rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.4rem;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+      padding: 0.6rem 1.5rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover { opacity: 0.85; text-decoration: none; }
+
+    /* ── Layout ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    section { margin-bottom: 3.5rem; }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--surface2);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 1.4rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 0.8rem; color: var(--text); }
+
+    /* ── Gameplay diagram ── */
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    /* ── Feature grid ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+    }
+
+    .feature-card strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    .feature-card span { color: var(--muted); font-size: 0.88rem; }
+
+    /* ── Architecture diagram ── */
+    .arch {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      font-size: 0.85rem;
+    }
+
+    .arch-layer {
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      padding: 0.75rem 1.2rem;
+    }
+
+    .arch-layer:first-child { border-radius: 8px 8px 0 0; }
+    .arch-layer:last-child  { border-radius: 0 0 8px 8px; }
+
+    .arch-layer .label {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .arch-layer .detail { color: var(--muted); margin-top: 0.1rem; }
+
+    .arch-arrow {
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1;
+      padding: 0.15rem 0;
+    }
+
+    /* ── Rules table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th {
+      background: var(--surface2);
+      color: var(--accent);
+      text-align: left;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 0.55rem 0.9rem;
+      border-bottom: 1px solid var(--surface);
+      color: var(--text);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #ffffff06; }
+
+    code {
+      background: var(--surface2);
+      color: var(--accent);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-family: "Fira Code", "Cascadia Code", monospace;
+    }
+
+    /* ── Hex side diagram ── */
+    .hex-sides {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .side-list {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    .side-list span { color: var(--text); font-weight: 600; }
+
+    /* ── Build section ── */
+    .code-block {
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      border-radius: 8px;
+      padding: 1.1rem 1.4rem;
+      font-family: "Fira Code", "Cascadia Code", monospace;
+      font-size: 0.84rem;
+      color: var(--text);
+      line-height: 2;
+    }
+
+    .code-block .comment { color: var(--muted); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--surface2);
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>HexFlip</h1>
+  <p>A modular hex-based card game playtesting sandbox built with Flutter.</p>
+  <div class="badges">
+    <span class="badge">Flutter 3.10+</span>
+    <span class="badge">Dart 3.0+</span>
+    <span class="badge">Linux · Windows · Web</span>
+    <span class="badge">MIT License</span>
+  </div>
+  <a class="btn" href="https://github.com/purrotocol/HexFlip">View on GitHub</a>
+</header>
+
+<main>
+
+  <!-- What it is -->
+  <section>
+    <h2>What it is</h2>
+    <p>
+      HexFlip is a flexible mechanics testbed — not a finished game. The goal is fast iteration on card
+      game rules without touching code. Everything that matters (card values, board shape, attack logic,
+      comparison conditions) is driven by JSON data.
+    </p>
+    <p>
+      Two players alternate placing cards from their hands onto a hex grid. When a card is placed, each
+      of its six sides is compared against the adjacent face of any neighboring card. If the attacker wins
+      the comparison, the neighbor flips to the active player's ownership. The player with the most cells
+      at the end wins.
+    </p>
+  </section>
+
+  <!-- Gameplay -->
+  <section>
+    <h2>Gameplay</h2>
+    <pre>
+┌───────────────────────────────────────────────────────┐
+│   P1: 7 cells    HexFlip    P2: 12 cells  [P2 turn]   │
+├───────────────────────────────────────────────────────┤
+│                                                       │
+│                ⬡  ⬡  ⬡                               │
+│              ⬡  ⬡  ⬡  ⬡                             │
+│            ⬡  ⬡  ●  ⬡  ⬡                            │
+│              ⬡  ⬡  ⬡  ⬡                             │
+│                ⬡  ⬡  ⬡                               │
+│                                                       │
+├───────────────────────────────────────────────────────┤
+│  Hand: [▲3][●7][■2][★5][◆4][▲8][●1]                 │
+│  Deck: 3 remaining              [Draw]  [End Turn]    │
+└───────────────────────────────────────────────────────┘</pre>
+    <p style="margin-top:1rem">
+      Each hexagonal card has <strong>6 sides</strong>, one facing each neighboring cell. Each side has a
+      <strong>shape</strong>, <strong>number (1–9)</strong>, and <strong>color</strong>. After placing a
+      card, an overlay shows every adjacency comparison — which sides fought, who won, and which cards
+      flipped.
+    </p>
+  </section>
+
+  <!-- Features -->
+  <section>
+    <h2>Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <strong>Hex grid board</strong>
+        <span>Flat-top axial coordinates, pan/zoom, Classic 19-cell and Small 7-cell layouts.</span>
+      </div>
+      <div class="feature-card">
+        <strong>Card editor</strong>
+        <span>Create and edit decks with per-side shape, number, and color.</span>
+      </div>
+      <div class="feature-card">
+        <strong>Board editor</strong>
+        <span>Toggle cells on/off to design custom board shapes (range ±4 cells).</span>
+      </div>
+      <div class="feature-card">
+        <strong>Rules editor</strong>
+        <span>Configure hand size, draw rate, attack eligibility, and comparison logic at runtime.</span>
+      </div>
+      <div class="feature-card">
+        <strong>Comparison overlay</strong>
+        <span>Post-placement breakdown of every attacker/defender matchup with flip results.</span>
+      </div>
+      <div class="feature-card">
+        <strong>Data-driven</strong>
+        <span>Decks, boards, and rules all saved as JSON — no code changes needed for new configurations.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section>
+    <h2>Architecture</h2>
+    <div class="arch">
+      <div class="arch-layer">
+        <div class="label">UI Layer — screens/ + widgets/</div>
+        <div class="detail">ConsumerWidget / ConsumerStatefulWidget · ref.watch / ref.read</div>
+      </div>
+      <div class="arch-arrow">↕</div>
+      <div class="arch-layer">
+        <div class="label">State Layer — state/</div>
+        <div class="detail">GameStateNotifier · BoardNotifier · DecksNotifier · GameRulesNotifier</div>
+      </div>
+      <div class="arch-arrow">↕</div>
+      <div class="arch-layer">
+        <div class="label">Engine Layer — engine/</div>
+        <div class="detail">Stateless · Flutter-free · HexMath · AdjacencyResolver · FlipEngine · TurnManager</div>
+      </div>
+      <div class="arch-arrow">↕</div>
+      <div class="arch-layer">
+        <div class="label">Model Layer — models/</div>
+        <div class="detail">Pure Dart · JSON-serializable · CardSide · HexCard · BoardModel · GameState</div>
+      </div>
+      <div class="arch-arrow">↕</div>
+      <div class="arch-layer">
+        <div class="label">Persistence — persistence/</div>
+        <div class="detail">StorageService · JSON files under &lt;appDocDir&gt;/hexflip/</div>
+      </div>
+    </div>
+
+    <h3>Hex coordinate system</h3>
+    <p>Axial coordinates <code>(q, r)</code>, flat-top layout. Side index maps to direction:</p>
+    <div class="side-list">
+      <div><span>Side 0</span> = top-right &nbsp;&nbsp; (+1, −1)</div>
+      <div><span>Side 1</span> = right &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (+1, &nbsp;0)</div>
+      <div><span>Side 2</span> = bottom-right ( 0, +1)</div>
+      <div><span>Side 3</span> = bottom-left &nbsp;(−1, +1)</div>
+      <div><span>Side 4</span> = left &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (−1, &nbsp;0)</div>
+      <div><span>Side 5</span> = top-left &nbsp;&nbsp;&nbsp;&nbsp;( 0, −1)</div>
+    </div>
+    <p style="margin-top:0.8rem">Opposing side of index <code>i</code> is always <code>(i + 3) % 6</code>.</p>
+  </section>
+
+  <!-- Rules -->
+  <section>
+    <h2>Rules configuration</h2>
+    <p>
+      All gameplay parameters are configurable at runtime via the Rules Editor and persisted as JSON.
+      No code changes required.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>startingHandSize</code></td><td>5</td><td>Cards dealt at game start</td></tr>
+        <tr><td><code>cardsDrawnPerTurn</code></td><td>1</td><td>Cards drawn per turn</td></tr>
+        <tr><td><code>handLimit</code></td><td>7</td><td>Maximum hand size</td></tr>
+        <tr><td><code>deckSize</code></td><td>10</td><td>Cards taken from the deck template</td></tr>
+        <tr><td><code>autoDrawEnabled</code></td><td>true</td><td>Draw automatically at turn start</td></tr>
+        <tr><td><code>attackEligibility</code></td><td>allSides</td><td>Which sides can initiate a comparison</td></tr>
+        <tr><td><code>requireNumberGreater</code></td><td>true</td><td>Attacker number must exceed defender</td></tr>
+        <tr><td><code>requireShapeMatch</code></td><td>false</td><td>Shapes must match to flip</td></tr>
+        <tr><td><code>requireColorMatch</code></td><td>false</td><td>Colors must match to flip</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Building -->
+  <section>
+    <h2>Building</h2>
+    <p>Prerequisites: Flutter 3.10+, Dart 3.0+</p>
+    <div class="code-block">
+      <span class="comment"># Install dependencies</span><br>
+      flutter pub get<br><br>
+      <span class="comment"># Run in debug mode</span><br>
+      flutter run -d linux<br>
+      flutter run -d chrome<br><br>
+      <span class="comment"># Release builds</span><br>
+      flutter build linux<br>
+      flutter build windows &nbsp;&nbsp;<span class="comment"># Windows host required</span><br>
+      flutter build web
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  HexFlip is released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.
+  &nbsp;·&nbsp;
+  <a href="https://github.com/purrotocol/HexFlip">GitHub</a>
+</footer>
+
+</body>
+</html>
